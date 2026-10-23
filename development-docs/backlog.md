@@ -14,4 +14,4 @@ Format, one line per item, address first:
 ```
 - `<path or page>` — <what is missing> · <why it is not done; the person's word if any> · <date>
 ```
-- `app/api/` (Stripe) — card payments (Checkout, payment status, webhook, list of payments) are not built; the element is installed turned off · node step 573-3 builds them · 2026-10-23
+- live payment — a real Checkout session, status and webhook against Stripe are not proven: the owner's sandbox keys are needed (Settings → Payments → Web2), then the Stripe webhook endpoint in the Stripe Dashboard · node step 573-3 · 2026-10-23

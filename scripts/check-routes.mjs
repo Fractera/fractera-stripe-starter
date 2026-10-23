@@ -86,6 +86,10 @@ const ALLOWED = new Map([
   ['app/api/shell/[lang]/route.ts', 'шапка и подвал для служб узла'],
   ['app/api/users/[id]/route.ts', 'одна учётная запись'],
   ['app/api/users/route.ts', 'учётные записи'],
+  ['app/api/stripe-checkout/route.ts', 'door stripe-checkout: create a Stripe Checkout payment link for an element of the node (door:add, node step 548-16)'],
+  ['app/api/stripe-status/route.ts', 'door stripe-status: read the status of a Stripe Checkout payment by its id (door:add, node step 548-16)'],
+  ['app/api/stripe-payments/route.ts', 'door stripe-payments: list the recorded Stripe payments of one element of the node (door:add, node step 548-16)'],
+  ['app/api/stripe-webhook/route.ts', 'door stripe-webhook: receive signed Stripe events and record finished payments (public: Stripe calls it, the signature decides; node step 573-3)'],
 ])
 
 const found = []

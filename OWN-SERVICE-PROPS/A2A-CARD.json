@@ -121,6 +121,96 @@
               "callers": [
                 "*"
               ]
+            },
+            {
+              "skill": "stripe-checkout",
+              "protocol": "http",
+              "method": "POST",
+              "path": "/api/stripe-checkout",
+              "key": "node-key",
+              "input": {
+                "element": "shop",
+                "reference": "order-7",
+                "amount": 1500,
+                "currency": "usd",
+                "description": "One lesson",
+                "successUrl": "https://shop.example/paid",
+                "cancelUrl": "https://shop.example/cart"
+              },
+              "output": {
+                "id": "cs_test_…",
+                "url": "https://checkout.stripe.com/c/pay/cs_test_…"
+              },
+              "errors": {
+                "400": "bad_element · bad_reference · bad_urls · bad_price · bad_amount · bad_currency · bad_description",
+                "401": "bad_key",
+                "502": "stripe_refused",
+                "503": "no_stripe_keys"
+              },
+              "callers": [
+                "*"
+              ]
+            },
+            {
+              "skill": "stripe-status",
+              "protocol": "http",
+              "method": "GET",
+              "path": "/api/stripe-status",
+              "key": "node-key",
+              "input": {
+                "id": "cs_test_…"
+              },
+              "output": {
+                "id": "cs_test_…",
+                "status": "paid",
+                "amount": 1500,
+                "currency": "usd",
+                "element": "shop",
+                "reference": "order-7"
+              },
+              "errors": {
+                "400": "bad_id",
+                "401": "bad_key",
+                "404": "not_found",
+                "502": "stripe_refused",
+                "503": "no_stripe_keys"
+              },
+              "callers": [
+                "*"
+              ]
+            },
+            {
+              "skill": "stripe-payments",
+              "protocol": "http",
+              "method": "GET",
+              "path": "/api/stripe-payments",
+              "key": "node-key",
+              "input": {
+                "element": "shop"
+              },
+              "output": {
+                "element": "shop",
+                "payments": [
+                  {
+                    "event": "evt_…",
+                    "type": "checkout.session.completed",
+                    "at": "2026-10-23T09:40:00.000Z",
+                    "session": "cs_test_…",
+                    "amount": 1500,
+                    "currency": "usd",
+                    "element": "shop",
+                    "reference": "order-7",
+                    "status": "paid"
+                  }
+                ]
+              },
+              "errors": {
+                "400": "bad_element",
+                "401": "bad_key"
+              },
+              "callers": [
+                "*"
+              ]
             }
           ],
           "consumes": [
@@ -220,7 +310,8 @@
             "/api/settings/platform",
             "/api/settings/design",
             "/api/a2a/tasks",
-            "/api/own-service-props"
+            "/api/own-service-props",
+            "/api/stripe-webhook"
           ],
           "a2aEndpoint": "/api/a2a",
           "a2aSkills": [
@@ -372,6 +463,63 @@
       ],
       "examples": [
         "Save this hero section for everyone"
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "stripe-checkout",
+      "name": "Create a Stripe Checkout payment link for an element of the node",
+      "description": "create a Stripe Checkout payment link for an element of the node. Not over A2A: an HTTP door — POST /api/stripe-checkout (extension https://fractera.ai/a2a/ext/node/v1, «doors»)",
+      "tags": [
+        "http-door",
+        "payments",
+        "stripe"
+      ],
+      "examples": [
+        "A shop element asks for a payment link for order-7, 15 USD, and sends the buyer to the returned url."
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "stripe-status",
+      "name": "Read the status of a Stripe Checkout payment by its id",
+      "description": "read the status of a Stripe Checkout payment by its id. Not over A2A: an HTTP door — GET /api/stripe-status (extension https://fractera.ai/a2a/ext/node/v1, «doors»)",
+      "tags": [
+        "http-door",
+        "payments",
+        "stripe"
+      ],
+      "examples": [
+        "The shop element checks session cs_test_… when the buyer returns to its success page."
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "stripe-payments",
+      "name": "List the recorded Stripe payments of one element of the node",
+      "description": "list the recorded Stripe payments of one element of the node. Not over A2A: an HTTP door — GET /api/stripe-payments (extension https://fractera.ai/a2a/ext/node/v1, «doors»)",
+      "tags": [
+        "http-door",
+        "payments",
+        "stripe"
+      ],
+      "examples": [
+        "The shop element lists the payments recorded for it."
       ],
       "inputModes": [
         "application/json"

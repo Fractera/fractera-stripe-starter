@@ -1,10 +1,10 @@
 {
   "id": "stripe",
   "name": "Stripe payments",
-  "shortDescription": "The payment element of the node. It is meant to take card payments through the owner's own Stripe account for the other elements of the node, so they need no payment code and no Stripe keys of their own. It is installed and turned off: card payments are not built yet.",
-  "longDescription": "Stripe payments is a native element of the node. It is meant to be the one place that holds the owner's Stripe keys and talks to Stripe. An element that sells something asks it for a payment link and later for the payment status, and never touches a card or a key. Payments go through Stripe Checkout, the payment page on Stripe's side, so no card number reaches the node.\n\nToday it is a body only: the node installs it, knows it and keeps it turned off. The checkout, the payment status, the Stripe webhook and the list of payments come in the next steps of the node. Turning it on today starts the template site and nothing else.",
-  "accepts": "Nothing yet: card payments are not built and the element is turned off by default.",
-  "returns": "Nothing yet.",
+  "shortDescription": "The payment element of the node. It takes card payments through the owner's own Stripe account for the other elements of the node, so they need no payment code and no Stripe keys of their own. It is turned off by default and works once the owner enters the Stripe keys.",
+  "longDescription": "Stripe payments is a native element of the node and the one place that holds the owner's Stripe keys. An element that sells something asks it for a payment link (Stripe Checkout: the payment page on Stripe's side, so no card number reaches the node), later asks for the payment status, and can list the payments recorded for it. Stripe tells this element about finished payments and refunds through a signed webhook.\n\nThe owner enters the keys on the node screen Settings → Payments → Web2. Without them the element answers that the keys are missing. It is turned off by default; turn it on when the keys are set.",
+  "accepts": "From the elements of this node, with the node key: a payment request (element, order reference, amount and currency or a Stripe price, return addresses), a Checkout session id, an element id. From Stripe: signed events at /api/stripe-webhook.",
+  "returns": "A Checkout payment link { id, url }; the status of a payment (paid, open or expired, amount, element, reference); the list of payments recorded for an element. Never a buyer's card, name or e-mail.",
   "designSkill": "impeccable",
   "isFracteraArchitecture": true,
   "framework": "next",
@@ -24,8 +24,8 @@
   "power": {
     "default": "off",
     "reason": {
-      "en": "Card payments are not built yet",
-      "ru": "Приём оплаты ещё не построен"
+      "en": "Turn it on after you enter your Stripe keys",
+      "ru": "Включите, когда введёте ключи Stripe"
     }
   },
   "payment": {

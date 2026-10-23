@@ -62,6 +62,8 @@ const ADMIN_API_PREFIXES: string[] = [];
 // Дверь, работающая для гостя, обязана быть НАЗВАНА здесь. Забыли назвать —
 // возможность работает у разработчика и падает у покупателя.
 const PUBLIC_API_PREFIXES = [
+  // 573-3: Stripe calls the webhook from the internet with no session; the Stripe signature decides inside the door.
+  "/api/stripe-webhook",
   "/api/health",
   // Дверь настроек сайта (280-6): приходит ядро узла, у него нет сессии посетителя. Стережёт
   // общий ключ SETTINGS_SECRET внутри обработчика, а не роль.
