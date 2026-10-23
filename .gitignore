@@ -105,3 +105,5 @@ next-env.d.ts
 
 # 315: font files copied from @fontsource packages before each build (scripts/local-fonts.mjs)
 public/fonts/
+# 573-4: written by npm run mcp:stripe from .env.local; holds the Stripe agent key
+/.mcp.json

@@ -68,7 +68,9 @@
     "test:stripe-checkout": "node app/api/stripe-checkout/stripe-checkout.test.mjs",
     "test:stripe-status": "node app/api/stripe-status/stripe-status.test.mjs",
     "test:stripe-payments": "node app/api/stripe-payments/stripe-payments.test.mjs",
-    "test:stripe-webhook": "node app/api/stripe-webhook/stripe-webhook.test.mjs"
+    "test:stripe-webhook": "node app/api/stripe-webhook/stripe-webhook.test.mjs",
+    "mcp:stripe": "node scripts/stripe-mcp.mjs",
+    "test:mcp-stripe": "node scripts/stripe-mcp.test.mjs"
   },
   "dependencies": {
     "@a2a-js/sdk": "1.3.0",

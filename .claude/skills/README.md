@@ -58,6 +58,8 @@ skill itself: a `<!-- PROOF … -->` mark under its header). Vendored skills are
 | `self-review` | ours, `build-skills` | on the person's «review» (in their language): at most three proposals to improve the skills, nothing changed without «yes» | — not proven |
 | `add-door` | ours, `build-skills` | a door for a neighbour: `npm run door:add` writes the route, the key and the card — you write the work | the mark in its `SKILL.md` |
 | `ask-core` | ours, `own-service-props-skills` | ask the core how the node works — the last resort | the mark in its `SKILL.md` |
+| `use-stripe` | ours, `build-skills` | the gatekeeper of Stripe work in this element: this element's doors, the SDK in a new door, the MCP server `stripe-agent` or `stripe-best-practices`; a sandbox first, refunds wait for a human, keys by name only | — not proven |
+| `stripe-best-practices` | vendored, Stripe | Stripe's own integration advice (Checkout or PaymentIntents, keys, webhooks) — `SOURCE.md`, payments and security references only | — vendored |
 
 Vendored skills are copies, never symbolic links, and are never edited by hand: `SOURCE.md` next to each says where it came
 from and how to update it.
