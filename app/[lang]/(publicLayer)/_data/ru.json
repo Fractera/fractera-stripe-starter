@@ -1,11 +1,259 @@
 {
-  "title": "Эталонный нативный шаблон",
-  "description": "Эталонный стартовый шаблон нативного элемента Fractera.",
+  "title": "Оплата картой для каждого элемента вашего узла",
+  "description": "Элемент Stripe узла Fractera хранит ваши ключи Stripe, создаёт ссылки на оплату в Stripe Checkout и записывает каждую оплату за элементом, который продал.",
+  "keywords": "Stripe, Stripe Checkout, оплата картой, вебхук, Stripe MCP, Claude Code, Fractera, открытый код",
   "blocks": [
     {
-      "kind": "widget-static-reference-title",
-      "bid": "rf001"
+      "kind": "widget-static-stripe-landing",
+      "bid": "gg1qi"
+    },
+    {
+      "kind": "block-hero-centered",
+      "pill": "OpenSource Web4 agent & app starter kit",
+      "title": "Оплата картой для каждого элемента вашего узла",
+      "description": "Ваш магазин или страница записи одним вызовом просит у этого элемента ссылку на оплату. Покупатель платит на странице самого Stripe, а деньги поступают на ваш аккаунт Stripe.",
+      "cta": {
+        "label": "Включить",
+        "href": "#turn-on"
+      },
+      "secondary": {
+        "label": "Подключить свой элемент",
+        "href": "#connect"
+      },
+      "bid": "bnuix"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "route",
+      "title": "Как проходит оплата",
+      "bid": "o5psm"
+    },
+    {
+      "kind": "text-h4",
+      "text": "Ваш элемент",
+      "bid": "adc40"
+    },
+    {
+      "kind": "text-p",
+      "text": "Просит ссылку на оплату: сумму, валюту и свой номер заказа.",
+      "bid": "ofom1"
+    },
+    {
+      "kind": "text-h4",
+      "text": "Элемент Stripe",
+      "bid": "tt2kd"
+    },
+    {
+      "kind": "text-p",
+      "text": "Создаёт сессию Stripe Checkout вашими ключами и возвращает её ссылку.",
+      "bid": "iwyh0"
+    },
+    {
+      "kind": "text-h4",
+      "text": "Stripe Checkout",
+      "bid": "yt913"
+    },
+    {
+      "kind": "text-p",
+      "text": "Принимает карту на стороне Stripe, поэтому номера карт не проходят через ваш компьютер.",
+      "bid": "gkofc"
+    },
+    {
+      "kind": "text-h4",
+      "text": "Ваш аккаунт Stripe",
+      "bid": "i966j"
+    },
+    {
+      "kind": "text-p",
+      "text": "Получает деньги по обычным тарифам Stripe. Своей комиссии Fractera не берёт.",
+      "bid": "mkb7l"
+    },
+    {
+      "kind": "text-small",
+      "text": "Затем Stripe присылает подписанное событие, и элемент записывает его за элементом, который продал: оплачено, отказ, истекло или возврат.",
+      "bid": "fjqts"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "solves",
+      "title": "Что меняется для вас",
+      "bid": "dpzsi"
+    },
+    {
+      "kind": "text-table",
+      "head": [
+        "Без него",
+        "С элементом Stripe"
+      ],
+      "rows": [
+        [
+          "Каждому сайту нужна своя интеграция со Stripe",
+          "Каждый элемент делает один вызов и получает ссылку на оплату"
+        ],
+        [
+          "Ключи Stripe скопированы в каждый проект",
+          "Ключи живут в этом элементе и проверяются у Stripe до сохранения"
+        ],
+        [
+          "Каждое приложение само пишет и защищает свой вебхук",
+          "Один вебхук проверяет подпись Stripe и записывает каждое событие один раз"
+        ],
+        [
+          "Оплачен ли заказ, вы проверяете в каждом приложении",
+          "Один вопрос о заказе отвечает: оплачено, ожидает или истекло"
+        ],
+        [
+          "Агент пишет код оплаты по памяти",
+          "Агент работает по собственному навыку Stripe и через сервер MCP Stripe"
+        ]
+      ],
+      "bid": "rz4t9"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "agent",
+      "title": "Агент, который знает ваш аккаунт Stripe",
+      "bid": "lfym9"
+    },
+    {
+      "kind": "text-p",
+      "text": "Агент этого элемента подключается к серверу MCP Stripe ключом агента. Он может смотреть и настраивать ваш аккаунт: товары, цены, адреса вебхуков, историю платежа.",
+      "bid": "be6qh"
+    },
+    {
+      "kind": "text-p",
+      "text": "Ключ агента — это ограниченный ключ, который вы создаёте в Stripe для агентов. Выплаты, возвраты и смену настроек аккаунта, сделанные с ним, Stripe держит до решения проверяющего, а возврат, запрошенный через MCP, приходит вам ссылкой на подтверждение.",
+      "bid": "cypkk"
+    },
+    {
+      "kind": "text-code",
+      "text": "{\n  \"mcpServers\": {\n    \"stripe-agent\": {\n      \"type\": \"http\",\n      \"url\": \"https://mcp.stripe.com\",\n      \"headers\": { \"Authorization\": \"Bearer rk_test_…\" }\n    }\n  }\n}",
+      "bid": "tzc9s"
+    },
+    {
+      "kind": "text-list",
+      "items": [
+        "`use-stripe`: правила этого элемента. Какой инструмент для какой задачи, сначала песочница, возвраты ждут человека, ключи упоминаются только по имени.",
+        "`stripe-best-practices`: собственный навык Stripe о Checkout, ключах и вебхуках."
+      ],
+      "bid": "d392r"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "turn-on",
+      "title": "Включение в четыре шага",
+      "bid": "mn2h5"
+    },
+    {
+      "kind": "text-list",
+      "ordered": true,
+      "items": [
+        "Скопируйте публикуемый и секретный ключи на [dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys). Начните с тестовых ключей песочницы.",
+        "На [dashboard.stripe.com/webhooks](https://dashboard.stripe.com/webhooks) создайте адрес событий (event destination) `https://stripe.<ваш домен>/api/stripe-webhook` и скопируйте его секрет подписи.",
+        "Для инструментов Stripe агента создайте на странице API keys ограниченный ключ и выберите «Authorizing agent access to your account».",
+        "В узле откройте Stripe → Настройки → Платежи → Web2, вставьте ключи и сохраните. Затем включите элемент в его «Опасной зоне»."
+      ],
+      "bid": "f3oqe"
+    },
+    {
+      "kind": "text-small",
+      "text": "Секретный ключ и ключ агента проверяются у Stripe до сохранения. Страница показывает, какие ключи заданы, но не их значения.",
+      "bid": "rtyyu"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "connect",
+      "title": "Подключите свой элемент",
+      "bid": "nss28"
+    },
+    {
+      "kind": "text-p",
+      "text": "Элемент вашего узла принимает оплату одним вызовом этого элемента — ключом узла, который у него уже есть. Своих ключей Stripe у него нет.",
+      "bid": "rlqoo"
+    },
+    {
+      "kind": "text-code",
+      "text": "// In your element's server code: one call for a payment link\nconst res = await fetch(`http://127.0.0.1:${stripePort}/api/stripe-checkout`, {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json', 'X-Node-Key': process.env.SETTINGS_SECRET },\n  body: JSON.stringify({\n    element: 'shop',\n    reference: 'order-7',\n    amount: 1500,\n    currency: 'usd',\n    description: 'One lesson',\n    successUrl: 'https://shop.example.com/en/paid',\n    cancelUrl: 'https://shop.example.com/en/cart',\n  }),\n})\nconst { url } = await res.json() // send the buyer to url",
+      "bid": "h8kbd"
+    },
+    {
+      "kind": "text-p",
+      "text": "На странице успеха элемент спрашивает `stripe-status`, оплачен ли заказ, а `stripe-payments` отдаёт весь его журнал. Агент вашего элемента находит этот элемент по роли в узле и берёт примеры вызова из его визитки.",
+      "bid": "dzrw9"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "hood",
+      "title": "Что под капотом",
+      "bid": "rqmvp"
+    },
+    {
+      "kind": "text-table",
+      "head": [
+        "Часть",
+        "Что делает"
+      ],
+      "rows": [
+        [
+          "`stripe-checkout`",
+          "Создаёт сессию Stripe Checkout и возвращает ссылку на оплату"
+        ],
+        [
+          "`stripe-status`",
+          "Отвечает по сессии: оплачено, ожидает или истекло"
+        ],
+        [
+          "`stripe-payments`",
+          "Отдаёт журнал одного элемента"
+        ],
+        [
+          "`stripe-webhook`",
+          "Принимает события Stripe, проверяет подпись и пишет одну строку на событие, без данных покупателя"
+        ],
+        [
+          "`stripe-agent`",
+          "Сервер MCP Stripe для агента этого элемента; его открывает ключ агента"
+        ],
+        [
+          "`use-stripe`, `stripe-best-practices`",
+          "Навыки агента: правила этого элемента и советы самого Stripe"
+        ],
+        [
+          "`stripe` 23.0.0",
+          "Библиотека Stripe для Node.js внутри дверей"
+        ],
+        [
+          "Тесты",
+          "35 проверок без сети; события вебхука подписаны библиотекой самого Stripe"
+        ],
+        [
+          "Программы на компьютере",
+          "Не нужны: ни плагина Stripe, ни Stripe CLI"
+        ]
+      ],
+      "bid": "if9aj"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "more",
+      "title": "Нужно больше?",
+      "bid": "ojk2w"
+    },
+    {
+      "kind": "text-p",
+      "text": "Подписки, возвраты из своего интерфейса, Stripe Connect или своя форма карты: попросите агента этого элемента. Он добавит новую дверь на той же библиотеке и проверит её тестами по навыку Stripe.",
+      "bid": "s9ad4"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "credits",
+      "title": "Открытый код",
+      "bid": "ibech"
+    },
+    {
+      "kind": "text-p",
+      "text": "Разработано компанией Fractera для протокола [Lagrix](https://lagrix.dev) и для любых web2-проектов, где важны скорость разработки, малый расход токенов и высокая нагрузка. Используется вместе с Claude Code. Код открыт по лицензии MIT: [Fractera/fractera-stripe-starter](https://github.com/Fractera/fractera-stripe-starter).",
+      "bid": "ibgo3"
     }
-  ],
-  "keywords": ""
+  ]
 }

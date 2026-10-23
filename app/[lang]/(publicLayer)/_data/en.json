@@ -1,11 +1,259 @@
 {
-  "title": "Reference native template",
-  "description": "The reference starter template of a Fractera native element.",
-  "keywords": "",
+  "title": "Card payments for every element of your node",
+  "description": "The Stripe element of a Fractera node keeps your Stripe keys, creates payment links on Stripe Checkout and records each payment for the element that sold.",
+  "keywords": "Stripe, Stripe Checkout, card payments, webhook, Stripe MCP, Claude Code, Fractera, open source",
   "blocks": [
     {
-      "kind": "widget-static-reference-title",
-      "bid": "rf001"
+      "kind": "widget-static-stripe-landing",
+      "bid": "gg1qi"
+    },
+    {
+      "kind": "block-hero-centered",
+      "pill": "OpenSource Web4 agent & app starter kit",
+      "title": "Card payments for every element of your node",
+      "description": "Your shop or booking page asks this element for a payment link with one call. The buyer pays on Stripe's own page, and the money goes to your Stripe account.",
+      "cta": {
+        "label": "Turn it on",
+        "href": "#turn-on"
+      },
+      "secondary": {
+        "label": "Connect your element",
+        "href": "#connect"
+      },
+      "bid": "bnuix"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "route",
+      "title": "How a payment goes",
+      "bid": "o5psm"
+    },
+    {
+      "kind": "text-h4",
+      "text": "Your element",
+      "bid": "adc40"
+    },
+    {
+      "kind": "text-p",
+      "text": "Asks for a payment link: the amount, the currency and its own order number.",
+      "bid": "ofom1"
+    },
+    {
+      "kind": "text-h4",
+      "text": "Stripe element",
+      "bid": "tt2kd"
+    },
+    {
+      "kind": "text-p",
+      "text": "Creates a Stripe Checkout session with your keys and returns its link.",
+      "bid": "iwyh0"
+    },
+    {
+      "kind": "text-h4",
+      "text": "Stripe Checkout",
+      "bid": "yt913"
+    },
+    {
+      "kind": "text-p",
+      "text": "Takes the card on Stripe's side, so card numbers never pass through your computer.",
+      "bid": "gkofc"
+    },
+    {
+      "kind": "text-h4",
+      "text": "Your Stripe account",
+      "bid": "i966j"
+    },
+    {
+      "kind": "text-p",
+      "text": "Receives the money at Stripe's own prices. Fractera adds no fee.",
+      "bid": "mkb7l"
+    },
+    {
+      "kind": "text-small",
+      "text": "Stripe then sends a signed event back, and the element records it for the element that sold: paid, failed, expired or refunded.",
+      "bid": "fjqts"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "solves",
+      "title": "What changes for you",
+      "bid": "dpzsi"
+    },
+    {
+      "kind": "text-table",
+      "head": [
+        "Without it",
+        "With the Stripe element"
+      ],
+      "rows": [
+        [
+          "Each site needs its own Stripe integration",
+          "Each element makes one call and gets a payment link"
+        ],
+        [
+          "Your Stripe keys are copied into every project",
+          "The keys live in this element and are checked with Stripe before they are saved"
+        ],
+        [
+          "Every app writes and protects its own webhook",
+          "One webhook checks Stripe's signature and records each event once"
+        ],
+        [
+          "You check each app to see whether an order was paid",
+          "One question per order returns paid, open or expired"
+        ],
+        [
+          "Your coding agent writes payment code from memory",
+          "Your agent follows Stripe's own skill and works through Stripe's MCP server"
+        ]
+      ],
+      "bid": "rz4t9"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "agent",
+      "title": "An agent that knows your Stripe account",
+      "bid": "lfym9"
+    },
+    {
+      "kind": "text-p",
+      "text": "This element's agent connects to Stripe's MCP server with an agent key. It can read and set up your account: products, prices, webhook endpoints and the history of a payment.",
+      "bid": "be6qh"
+    },
+    {
+      "kind": "text-p",
+      "text": "An agent key is a restricted key you create in Stripe for agents. Stripe holds payouts, refunds and account changes made with it until a reviewer approves them, and a refund asked through MCP reaches you as a link to confirm.",
+      "bid": "cypkk"
+    },
+    {
+      "kind": "text-code",
+      "text": "{\n  \"mcpServers\": {\n    \"stripe-agent\": {\n      \"type\": \"http\",\n      \"url\": \"https://mcp.stripe.com\",\n      \"headers\": { \"Authorization\": \"Bearer rk_test_…\" }\n    }\n  }\n}",
+      "bid": "tzc9s"
+    },
+    {
+      "kind": "text-list",
+      "items": [
+        "`use-stripe`: the rules of this element. Which tool fits which job, a sandbox before live keys, refunds wait for a person, keys appear only by name.",
+        "`stripe-best-practices`: Stripe's own skill on Checkout, keys and webhooks."
+      ],
+      "bid": "d392r"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "turn-on",
+      "title": "Turn it on in four steps",
+      "bid": "mn2h5"
+    },
+    {
+      "kind": "text-list",
+      "ordered": true,
+      "items": [
+        "Copy the publishable and secret keys from [dashboard.stripe.com/apikeys](https://dashboard.stripe.com/apikeys). Start with the test keys of a sandbox.",
+        "On [dashboard.stripe.com/webhooks](https://dashboard.stripe.com/webhooks), create an event destination for `https://stripe.<your domain>/api/stripe-webhook` and copy its signing secret.",
+        "For the agent's Stripe tools, create a restricted key on the API keys page and choose \"Authorizing agent access to your account\".",
+        "In your node, open Stripe, then Settings, Payments, Web2. Paste the keys, save, and turn the element on in its Danger zone."
+      ],
+      "bid": "f3oqe"
+    },
+    {
+      "kind": "text-small",
+      "text": "The secret key and the agent key are checked with Stripe before they are saved. The page shows only which keys are set, never their values.",
+      "bid": "rtyyu"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "connect",
+      "title": "Connect your element",
+      "bid": "nss28"
+    },
+    {
+      "kind": "text-p",
+      "text": "An element of your node takes a payment with one call to this element, using the node key it already has. It never holds Stripe keys of its own.",
+      "bid": "rlqoo"
+    },
+    {
+      "kind": "text-code",
+      "text": "// In your element's server code: one call for a payment link\nconst res = await fetch(`http://127.0.0.1:${stripePort}/api/stripe-checkout`, {\n  method: 'POST',\n  headers: { 'Content-Type': 'application/json', 'X-Node-Key': process.env.SETTINGS_SECRET },\n  body: JSON.stringify({\n    element: 'shop',\n    reference: 'order-7',\n    amount: 1500,\n    currency: 'usd',\n    description: 'One lesson',\n    successUrl: 'https://shop.example.com/en/paid',\n    cancelUrl: 'https://shop.example.com/en/cart',\n  }),\n})\nconst { url } = await res.json() // send the buyer to url",
+      "bid": "h8kbd"
+    },
+    {
+      "kind": "text-p",
+      "text": "On its success page the element asks `stripe-status` whether the order was paid, and `stripe-payments` returns its whole journal. Your element's agent finds this element by its role in the node and takes the call examples from its card.",
+      "bid": "dzrw9"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "hood",
+      "title": "Under the hood",
+      "bid": "rqmvp"
+    },
+    {
+      "kind": "text-table",
+      "head": [
+        "Part",
+        "What it does"
+      ],
+      "rows": [
+        [
+          "`stripe-checkout`",
+          "Creates a Stripe Checkout session and returns the payment link"
+        ],
+        [
+          "`stripe-status`",
+          "Returns paid, open or expired for a session"
+        ],
+        [
+          "`stripe-payments`",
+          "Returns the journal of one element"
+        ],
+        [
+          "`stripe-webhook`",
+          "Receives Stripe's events, checks the signature and writes one line per event, without buyer data"
+        ],
+        [
+          "`stripe-agent`",
+          "Stripe's MCP server for this element's agent, opened by the agent key"
+        ],
+        [
+          "`use-stripe`, `stripe-best-practices`",
+          "The agent's skills: this element's rules and Stripe's own advice"
+        ],
+        [
+          "`stripe` 23.0.0",
+          "Stripe's Node.js library inside the doors"
+        ],
+        [
+          "Tests",
+          "35 checks that run without network; webhook events are signed with Stripe's own library"
+        ],
+        [
+          "Programs on your computer",
+          "None. The element needs no Stripe plugin and no Stripe CLI"
+        ]
+      ],
+      "bid": "if9aj"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "more",
+      "title": "Need more?",
+      "bid": "ojk2w"
+    },
+    {
+      "kind": "text-p",
+      "text": "Subscriptions, refunds from your own interface, Stripe Connect or a card form of your own: ask this element's agent. It adds a new door with the same library and tests it, following Stripe's skill.",
+      "bid": "s9ad4"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "credits",
+      "title": "Open source",
+      "bid": "ibech"
+    },
+    {
+      "kind": "text-p",
+      "text": "Built by Fractera for the [Lagrix](https://lagrix.dev) protocol and for any web2 project that needs fast development, few tokens and high load. Used with Claude Code. The code is open under the MIT license: [Fractera/fractera-stripe-starter](https://github.com/Fractera/fractera-stripe-starter).",
+      "bid": "ibgo3"
     }
   ]
 }
