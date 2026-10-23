@@ -100,7 +100,7 @@
         ],
         [
           "You check each app to see whether an order was paid",
-          "One question per order returns paid, open or expired"
+          "One call per order tells you whether it is paid, open or expired"
         ],
         [
           "Your coding agent writes payment code from memory",
@@ -122,7 +122,7 @@
     },
     {
       "kind": "text-p",
-      "text": "An agent key is a restricted key you create in Stripe for agents. Stripe holds payouts, refunds and account changes made with it until a reviewer approves them, and a refund asked through MCP reaches you as a link to confirm.",
+      "text": "An agent key is a restricted key you create in Stripe for agents. Stripe holds payouts, refunds and account changes made with it until a reviewer approves them. A refund asked through MCP reaches you as a link to confirm.",
       "bid": "cypkk"
     },
     {
@@ -157,7 +157,7 @@
     },
     {
       "kind": "text-small",
-      "text": "The secret key and the agent key are checked with Stripe before they are saved. The page shows only which keys are set, never their values.",
+      "text": "The element checks the secret key and the agent key with Stripe before saving them. The page shows which keys are set, never their values.",
       "bid": "rtyyu"
     },
     {
