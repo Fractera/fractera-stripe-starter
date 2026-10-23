@@ -7,8 +7,8 @@
 - **Taken:** `SKILL.md`, `references/payments.md`, `references/security.md` as copies.
 - **NOT taken, on purpose:** `references/billing.md`, `connect.md`, `tax.md`, `treasury.md` — subscriptions, Connect, tax and Treasury are not
   part of this element's first version (node step 573, «not in the step»). When the owner orders one of them, read the online file
-  (`…/stripe-best-practices/references/<file>`) or take it as a copy with a new line here. The skills `stripe-docs` (it needs the Stripe CLI,
-  which the node does not install) and `upgrade-stripe` were not taken either.
+  (`…/stripe-best-practices/references/<file>`) or take it as a copy with a new line here. Two other folders of the same index were not taken
+  either: `stripe-docs` (it needs the Stripe CLI, which the node does not install) and `upgrade-stripe`.
 - **What the skill says that our rules override:** `stripe sandbox create`, `npm i -g @stripe/cli`, `stripe agent setup` and the Stripe plugin
   are not run here — installing programs is the owner's decision; read the docs as `https://docs.stripe.com/<path>.md` instead. The gatekeeper
   `use-stripe` (group build-skills) says when this skill is used and which node laws are stronger.
