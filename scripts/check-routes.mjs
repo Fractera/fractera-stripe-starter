@@ -92,6 +92,7 @@ const ALLOWED = new Map([
   ['app/api/stripe-status/route.ts', 'door stripe-status: read the status of a Stripe Checkout payment by its id (door:add, node step 548-16)'],
   ['app/api/stripe-payments/route.ts', 'door stripe-payments: list the recorded Stripe payments of one element of the node (door:add, node step 548-16)'],
   ['app/api/stripe-webhook/route.ts', 'door stripe-webhook: receive signed Stripe events and record finished payments (public: Stripe calls it, the signature decides; node step 573-3)'],
+  ['app/api/stripe-products/route.ts', 'door stripe-products: Lists the products and prices of the node\'s Stripe account (door:add, node step 548-16)'],
 ])
 
 const found = []

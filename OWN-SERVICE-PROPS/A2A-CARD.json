@@ -211,6 +211,46 @@
               "callers": [
                 "*"
               ]
+            },
+            {
+              "skill": "stripe-products",
+              "protocol": "http",
+              "method": "GET",
+              "path": "/api/stripe-products",
+              "key": "node-key",
+              "input": {
+                "active": "true",
+                "limit": "20"
+              },
+              "output": {
+                "products": [
+                  {
+                    "id": "prod_…",
+                    "name": "Course",
+                    "description": null,
+                    "active": true,
+                    "prices": [
+                      {
+                        "id": "price_…",
+                        "active": true,
+                        "unit_amount": 4900,
+                        "currency": "usd",
+                        "recurring": null
+                      }
+                    ]
+                  }
+                ],
+                "has_more": false
+              },
+              "errors": {
+                "401": "bad_key",
+                "422": "bad_active · bad_limit",
+                "502": "stripe_refused",
+                "503": "no_stripe_keys"
+              },
+              "callers": [
+                "*"
+              ]
             }
           ],
           "consumes": [
@@ -520,6 +560,25 @@
       ],
       "examples": [
         "The shop element lists the payments recorded for it."
+      ],
+      "inputModes": [
+        "application/json"
+      ],
+      "outputModes": [
+        "application/json"
+      ]
+    },
+    {
+      "id": "stripe-products",
+      "name": "Lists the products and prices of the node's Stripe account",
+      "description": "Lists the products and prices of the node's Stripe account. Not over A2A: an HTTP door — GET /api/stripe-products (extension https://fractera.ai/a2a/ext/node/v1, «doors»)",
+      "tags": [
+        "http-door",
+        "payments",
+        "stripe"
+      ],
+      "examples": [
+        "A neighbour asks the Stripe element which products and prices exist before it shows a shop page."
       ],
       "inputModes": [
         "application/json"

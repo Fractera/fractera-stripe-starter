@@ -15,3 +15,6 @@ Format, one line per item, address first:
 - `<path or page>` — <what is missing> · <why it is not done; the person's word if any> · <date>
 ```
 - live payment — a real Checkout session, status and webhook against Stripe are not proven: the owner's sandbox keys are needed (Settings → Payments → Web2), then the Stripe webhook endpoint in the Stripe Dashboard · node step 573-3 · 2026-10-23
+- `app/api/stripe-products` — a live call with real Stripe is not proven: no sandbox key in `.env.local` yet · node step 577-5 · 2026-10-24
+- `OWN-SERVICE-PROPS/OWN-SERVICE-PROPS.json` — `accepts` / `returns` do not name the product listing door yet; a text, for `passport-description` when the person asks · node step 577-5 · 2026-10-24
+- `scripts/passport.mjs:62` — `npm run passport -- me` fails with a SyntaxError (unescaped apostrophe in a string), so the wake command breaks in this element · found in step 3 · 2026-10-24
