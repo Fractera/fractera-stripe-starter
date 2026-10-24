@@ -62,7 +62,7 @@ function HeroView({ hero, route }: { hero: Hero; route?: Section }) {
               <a href={hero.secondary.href} className={cn(buttonVariants({ size: "lg", variant: "outline" }), "h-11 px-5 text-base")}>{hero.secondary.label}</a>
             )}
           </div>
-          {hero.pill && <Badge variant="outline" className="w-fit">{hero.pill}</Badge>}
+          {hero.pill && <Badge data-block="r9n16" variant="outline" className="w-fit">{hero.pill}</Badge>}
         </div>
         {route && <Route section={route} />}
       </div>
@@ -80,7 +80,7 @@ function Route({ section }: { section: Section }) {
   const back = first(section, "text-small")
   return (
     <figure data-block="cbhi4" className="rounded-[calc(var(--radius)*2)] border border-border bg-card p-6 text-card-foreground shadow-[0_28px_64px_-32px_color-mix(in_oklab,var(--primary)_45%,transparent)] motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-4 motion-safe:duration-700 md:p-8">
-      <figcaption><H2 data-block="nca5a" variant="ui">{section.title}</H2></figcaption>
+      <figcaption data-block="hueer"><H2 data-block="nca5a" variant="ui">{section.title}</H2></figcaption>
       <ol data-block="badmk" className="mt-6 flex flex-col">
         {stations.map((s, i) => {
           const Icon = ROUTE_ICONS[i % ROUTE_ICONS.length]
@@ -92,7 +92,7 @@ function Route({ section }: { section: Section }) {
               </span>
               <div data-block="iivul" className="min-w-0 pt-1">
                 <H3 data-block="krrwm" variant="ui">{s.name}</H3>
-                <Small className="mt-1 text-pretty">{inline(s.text, `route-${i}`)}</Small>
+                <Small data-block="i3pik" className="mt-1 text-pretty">{inline(s.text, `route-${i}`)}</Small>
               </div>
             </li>
           )
@@ -101,7 +101,7 @@ function Route({ section }: { section: Section }) {
       {back && (
         <div data-block="lk2wo" className="mt-6 flex gap-3 rounded-[var(--radius)] border border-dashed border-primary/40 bg-primary/5 p-4">
           <CornerDownLeft className="mt-0.5 size-4 shrink-0 text-primary" aria-hidden />
-          <Small className="text-pretty">{inline(back.text, "route-back")}</Small>
+          <Small data-block="dvg6d" className="text-pretty">{inline(back.text, "route-back")}</Small>
         </div>
       )}
     </figure>
@@ -189,7 +189,7 @@ function Steps({ section }: { section: Section }) {
           ))}
         </ol>
       )}
-      {note && <Small className="mt-8 max-w-[70ch] text-pretty">{inline(note.text, "steps-note")}</Small>}
+      {note && <Small data-block="ezlq0" className="mt-8 max-w-[70ch] text-pretty">{inline(note.text, "steps-note")}</Small>}
     </section>
   )
 }
@@ -220,14 +220,14 @@ function Hood({ section }: { section: Section }) {
       {table && (
         <div data-block="cmu9o" className="mt-10 border-y border-border">
           <div data-block="nutiz" className={cn("hidden gap-8 border-b border-border py-3 md:grid", COLS)}>
-            <Small className="font-medium">{table.head[0]}</Small>
-            <Small className="font-medium">{table.head[1]}</Small>
+            <Small data-block="ugdjw" className="font-medium">{table.head[0]}</Small>
+            <Small data-block="m9n2r" className="font-medium">{table.head[1]}</Small>
           </div>
-          <dl className="divide-y divide-border">
+          <dl data-block="blm9n" className="divide-y divide-border">
             {table.rows.map((r, i) => (
               <div data-block="n7e03" key={i} className={cn("grid gap-1 py-4 md:gap-8", COLS)}>
-                <dt className="font-medium text-foreground">{inline(r[0] ?? "", `hood-${i}-a`)}</dt>
-                <dd className="text-pretty text-muted-foreground">{inline(r[1] ?? "", `hood-${i}-b`)}</dd>
+                <dt data-block="d7mq2" className="font-medium text-foreground">{inline(r[0] ?? "", `hood-${i}-a`)}</dt>
+                <dd data-block="uz0i3" className="text-pretty text-muted-foreground">{inline(r[1] ?? "", `hood-${i}-b`)}</dd>
               </div>
             ))}
           </dl>
@@ -255,7 +255,7 @@ function Credits({ section }: { section: Section }) {
     <section data-block="o4yyq" id={section.id} className="border-t border-border bg-muted/40">
       <div data-block="esjbq" className={cn(WRAP, "flex flex-col gap-2 py-10")}>
         <H2 data-block="jlepc" variant="ui">{section.title}</H2>
-        {p && <Small className="max-w-[80ch] text-pretty [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4">{inline(p.text, "credits")}</Small>}
+        {p && <Small data-block="tnzxr" className="max-w-[80ch] text-pretty [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4">{inline(p.text, "credits")}</Small>}
       </div>
     </section>
   )
