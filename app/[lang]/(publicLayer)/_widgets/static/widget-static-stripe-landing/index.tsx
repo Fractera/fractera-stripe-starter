@@ -282,18 +282,18 @@ const textsOf = (section: Section) => section.blocks.filter((b) => b.kind === "t
 function BuilderWide({ section }: { section: Section }) {
   const list = section.blocks.find((b) => b.kind === "text-list") as unknown as { items: string[] } | undefined
   return (
-    <section id={section.id} className="scroll-mt-20 border-y border-border bg-muted/40">
-      <div className={cn(WRAP, "grid items-center gap-10 py-16 md:grid-cols-2 md:gap-14 md:py-24")}>
-        <div className="flex min-w-0 flex-col gap-5">
-          <H2 className="text-balance">{section.title}</H2>
-          {textsOf(section).map((p, i) => <P key={i} className="text-pretty">{inline(p.text, `builder-${i}`)}</P>)}
+    <section data-block="sl3vw" id={section.id} className="scroll-mt-20 border-y border-border bg-muted/40">
+      <div data-block="sl4l1" className={cn(WRAP, "grid items-center gap-10 py-16 md:grid-cols-2 md:gap-14 md:py-24")}>
+        <div data-block="tcid9" className="flex min-w-0 flex-col gap-5">
+          <H2 data-block="jdhg1" className="text-balance">{section.title}</H2>
+          {textsOf(section).map((p, i) => <P data-block="aqchc" key={i} className="text-pretty">{inline(p.text, `builder-${i}`)}</P>)}
           {list && (
-            <ul className="mt-2 flex flex-col divide-y divide-border border-y border-border">
-              {list.items.map((t, i) => <li key={i} className="py-3 text-pretty text-foreground">{inline(t, `builder-li-${i}`)}</li>)}
+            <ul data-block="ie7vg" className="mt-2 flex flex-col divide-y divide-border border-y border-border">
+              {list.items.map((t, i) => <li data-block="bjsix" key={i} className="py-3 text-pretty text-foreground">{inline(t, `builder-li-${i}`)}</li>)}
             </ul>
           )}
         </div>
-        <div className="min-w-0"><BuilderFigure ru={isRu(section.title)} title={section.title} /></div>
+        <div data-block="d584t" className="min-w-0"><BuilderFigure ru={isRu(section.title)} title={section.title} /></div>
       </div>
     </section>
   )
@@ -308,14 +308,14 @@ function FaqWide({ section }: { section: Section }) {
   if (!faq) return null
   const schema = { "@context": "https://schema.org", "@type": "FAQPage", mainEntity: faq.items.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: plainText(f.a) } })) }
   return (
-    <section id={section.id} aria-labelledby="faq-heading" className={cn(WRAP, "scroll-mt-20 py-16 md:py-24")}>
+    <section data-block="oiv01" id={section.id} aria-labelledby="faq-heading" className={cn(WRAP, "scroll-mt-20 py-16 md:py-24")}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
-      <H2 id="faq-heading" className="text-balance">{faq.title}</H2>
-      <dl className="mt-10 grid gap-4 md:grid-cols-2">
+      <H2 data-block="f5m0t" id="faq-heading" className="text-balance">{faq.title}</H2>
+      <dl data-block="vom64" className="mt-10 grid gap-4 md:grid-cols-2">
         {faq.items.map((f, i) => (
-          <div key={i} className="rounded-2xl border border-border bg-muted/40 p-5">
-            <dt className="text-base font-semibold text-foreground">{f.q}</dt>
-            <dd className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{inline(f.a, `faq-${i}`)}</dd>
+          <div data-block="jdrny" key={i} className="rounded-2xl border border-border bg-muted/40 p-5">
+            <dt data-block="catfa" className="text-base font-semibold text-foreground">{f.q}</dt>
+            <dd data-block="eagf4" className="mt-2 text-[15px] leading-relaxed text-muted-foreground">{inline(f.a, `faq-${i}`)}</dd>
           </div>
         ))}
       </dl>
@@ -328,11 +328,11 @@ function CreditsWide({ section }: { section: Section }) {
   const p = textsOf(section)[0]
   const repo = p?.text.match(/\((https:\/\/github\.com\/[^)\s]+)\)/)?.[1]
   return (
-    <section id={section.id} className="border-t border-border bg-muted/40">
-      <div className={cn(WRAP, "grid items-center gap-6 py-10 md:grid-cols-[minmax(0,1fr)_auto]")}>
-        <div className="flex min-w-0 flex-col gap-2">
-          <H2 variant="ui">{section.title}</H2>
-          {p && <Small className="text-pretty [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4">{inline(p.text, "credits")}</Small>}
+    <section data-block="w0jzk" id={section.id} className="border-t border-border bg-muted/40">
+      <div data-block="w047n" className={cn(WRAP, "grid items-center gap-6 py-10 md:grid-cols-[minmax(0,1fr)_auto]")}>
+        <div data-block="mzbt7" className="flex min-w-0 flex-col gap-2">
+          <H2 data-block="te21x" variant="ui">{section.title}</H2>
+          {p && <Small data-block="d1kps" className="text-pretty [&_a]:text-primary [&_a]:underline [&_a]:underline-offset-4">{inline(p.text, "credits")}</Small>}
         </div>
         {repo && <a href={repo} className={cn(buttonVariants({ variant: "outline" }), "h-10 px-4")}>GitHub →</a>}
       </div>
