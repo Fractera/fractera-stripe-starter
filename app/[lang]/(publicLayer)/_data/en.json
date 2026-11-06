@@ -75,6 +75,17 @@
     },
     {
       "kind": "block-section-head",
+      "id": "power",
+      "title": "Off until you enter your keys",
+      "bid": "q0000"
+    },
+    {
+      "kind": "text-p",
+      "text": "Stripe is the only element of the node that arrives turned off: turn it on after you enter your Stripe keys. The switch is in the core, on this element's settings page.",
+      "bid": "q0001"
+    },
+    {
+      "kind": "block-section-head",
       "id": "solves",
       "title": "What changes for you",
       "bid": "dpzsi"
@@ -246,6 +257,31 @@
     },
     {
       "kind": "block-section-head",
+      "id": "builder",
+      "title": "Your own builder comes with it",
+      "bid": "q0002"
+    },
+    {
+      "kind": "text-p",
+      "text": "Every element of the node comes with its own Claude Code agent and can get its own Telegram bot. When something in this element should change, write to its bot from your phone, and the agent updates the logic or the design.",
+      "bid": "q0003"
+    },
+    {
+      "kind": "text-p",
+      "text": "The agent works only in its element's folder and never reads the whole node, so each change costs fewer tokens. Your Claude Code subscription pays for it.",
+      "bid": "q0004"
+    },
+    {
+      "kind": "text-list",
+      "items": [
+        "The element's bot is connected in the core, on its «Telegram» page.",
+        "The agent returns a commit; you look at it in «Preview» and accept it or turn it down.",
+        "At the computer, the agent's terminal is in the core, in this element's «Build»."
+      ],
+      "bid": "q0005"
+    },
+    {
+      "kind": "block-section-head",
       "id": "credits",
       "title": "Open source",
       "bid": "ibech"
@@ -254,6 +290,31 @@
       "kind": "text-p",
       "text": "Built by Fractera for the [Lagrix](https://lagrix.dev) protocol and for any web2 project that needs fast development, few tokens and high load. Used with Claude Code. The code is open under the MIT license: [Fractera/fractera-stripe-starter](https://github.com/Fractera/fractera-stripe-starter).",
       "bid": "ibgo3"
+    },
+    {
+      "kind": "block-section-head",
+      "id": "faq",
+      "title": "Questions and answers",
+      "bid": "q0006"
+    },
+    {
+      "kind": "block-faq",
+      "title": "Questions and answers",
+      "items": [
+        {
+          "q": "Does Fractera take a fee?",
+          "a": "No. The money goes to your Stripe account at Stripe's usual rates."
+        },
+        {
+          "q": "Do card numbers pass through my computer?",
+          "a": "No. The buyer pays on Stripe's own Checkout page."
+        },
+        {
+          "q": "Does every element need its own Stripe keys?",
+          "a": "No. The keys live only in this element; your element asks it for a payment link with the node key it already has."
+        }
+      ],
+      "bid": "q0007"
     }
   ]
 }
