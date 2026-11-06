@@ -9,7 +9,7 @@ import type { Block } from "@/lib/content/blocks/types"
 import { TEXT_SET } from "@/lib/content/text-set"
 import { cn } from "@/lib/utils"
 import { landing, type Hero, type Section } from "./words"
-import { BuilderArt } from "./builder-art"
+import { BuilderFigure } from "./builder-figure.client"
 
 // ГЛАВНАЯ ЭЛЕМЕНТА STRIPE — ПРЕЗЕНТАЦИЯ (узел, шаг 573-7). Владелец 2026-10-23: «создай landing презентацию всего того что ты сделал …
 // какие задачи он решает что он позволяет сделать как его активировать … Как пользователь сможет начать использовать этот страйп»;
@@ -278,7 +278,7 @@ function Generic({ section }: { section: Section }) {
 const isRu = (t: string) => /[А-Яа-яЁё]/.test(t)
 const textsOf = (section: Section) => section.blocks.filter((b) => b.kind === "text-p") as unknown as { text: string }[]
 
-/** Свой строитель: слова слева, справа картинка «элемент и его части» (агент, бот, коммит, токены). */
+/** Свой строитель: слова слева, справа фигурка Claude — собирается из частей, разворачивается и подпрыгивает, когда секция в фокусе. */
 function BuilderWide({ section }: { section: Section }) {
   const list = section.blocks.find((b) => b.kind === "text-list") as unknown as { items: string[] } | undefined
   return (
@@ -293,7 +293,7 @@ function BuilderWide({ section }: { section: Section }) {
             </ul>
           )}
         </div>
-        <div className="min-w-0"><BuilderArt ru={isRu(section.title)} title={section.title} /></div>
+        <div className="min-w-0"><BuilderFigure ru={isRu(section.title)} title={section.title} /></div>
       </div>
     </section>
   )
