@@ -23,6 +23,8 @@
   },
   "power": {
     "default": "off",
+    "switch": "manual",
+    "wakeOnCall": false,
     "reason": {
       "en": "Turn it on after you enter your Stripe keys",
       "ru": "Включите, когда введёте ключи Stripe"
