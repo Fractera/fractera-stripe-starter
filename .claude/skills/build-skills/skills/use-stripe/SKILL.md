@@ -1,6 +1,9 @@
 ---
 name: use-stripe
-description: Builder skill. Load it before any Stripe work in this element — a new payment door, a change of Checkout, a webhook event, products and prices, a refund question, the Stripe MCP tools or Stripe's own skill stripe-best-practices. It says which tool to take (this element's doors, the SDK inside them, the MCP server stripe-agent, the vendored skill), that a sandbox comes first, that refunds and transfers wait for a human, and which node laws are stronger than Stripe's advice.
+description: >
+  Builder skill. Load it before any Stripe work in this element (a payment door, Checkout, a webhook event, products and prices,
+  a refund, the Stripe MCP tools or the vendored stripe-best-practices): which tool to take, a sandbox first, refunds and
+  transfers wait for a human, and which node laws beat Stripe's advice.
 ---
 
 # use-stripe — when and how this element works with Stripe

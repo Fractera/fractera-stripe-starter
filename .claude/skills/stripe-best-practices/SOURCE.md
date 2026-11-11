@@ -1,5 +1,7 @@
 # SOURCE — vendored, do not edit by hand
 
+Pass: main — Stripe work is code of this element's doors
+
 - **What:** `stripe-best-practices`, Stripe's own agent skill (published by Stripe for agents, docs.stripe.com/skills).
 - **From:** `https://docs.stripe.com/.well-known/skills/index.json` → `https://docs.stripe.com/.well-known/skills/stripe-best-practices/<file>`,
   taken 2026-10-23 (node step 573-4). sha256 (first 16): `SKILL.md` a240f40c84c43f8c · `references/payments.md` f7edac576b72da7b ·
