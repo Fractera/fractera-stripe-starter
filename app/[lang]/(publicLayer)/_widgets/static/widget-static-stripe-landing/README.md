@@ -5,14 +5,14 @@ turn it on, how another element connects, what is under the hood. A static widge
 
 ## Where its words come from
 
-From the blocks of the home page, `../../../_data/en.json` and `ru.json` (`words.ts`). The page is `bare` (`_data/meta.json`): only this
-widget is drawn, and the blocks are its words and the page's text copy for search and agents (`index.md`, `llms-full.txt`), so
+From the items of the home page, `../../../_data/en.json` and `ru.json` (`words.ts`). The page is `bare` (`_data/meta.json`): only this
+widget is drawn, and the items are its words and the page's text copy for search and agents (`index.md`, `llms-full.txt`), so
 `markdown.ts` returns nothing of its own. A corrected sentence shows up without a rebuild (ISR, or `npm run pages:refresh`).
 
-| Blocks in the data | How the widget draws them |
+| Items in the data | How the widget draws them |
 |---|---|
-| `block-hero-centered` | first screen: title, lead, two buttons (anchors), the badge |
-| `block-section-head` id `route` + pairs `text-h4`/`text-p` + `text-small` | the payment route on the first screen; the small text is the way back (the webhook) |
+| `section-hero-centered` | first screen: title, lead, two buttons (anchors), the badge |
+| `section-head` id `route` + pairs `text-h4`/`text-p` + `text-small` | the payment route on the first screen; the small text is the way back (the webhook) |
 | id `solves` + `text-table` | «without it / with it», two columns |
 | id `agent` + `text-p`, `text-code`, `text-list` | the agent, its `.mcp.json`, its skills |
 | id `turn-on` + `text-list` (`ordered`) + `text-small` | numbered steps |

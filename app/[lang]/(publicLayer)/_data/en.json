@@ -2,13 +2,13 @@
   "title": "Card payments for every element of your node",
   "description": "The Stripe element of a Fractera node keeps your Stripe keys, creates payment links on Stripe Checkout and records each payment for the element that sold.",
   "keywords": "Stripe, Stripe Checkout, card payments, webhook, Stripe MCP, Claude Code, Fractera, open source",
-  "blocks": [
+  "body": [
     {
       "kind": "widget-static-stripe-landing",
       "bid": "gg1qi"
     },
     {
-      "kind": "block-hero-centered",
+      "kind": "section-hero-centered",
       "pill": "OpenSource Web4 agent & app starter kit",
       "title": "Card payments for every element of your node",
       "description": "Your shop or booking page asks this element for a payment link with one call. The buyer pays on Stripe's own page, and the money goes to your Stripe account.",
@@ -23,7 +23,7 @@
       "bid": "bnuix"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "route",
       "title": "How a payment goes",
       "bid": "o5psm"
@@ -74,7 +74,7 @@
       "bid": "fjqts"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "power",
       "title": "Off until you enter your keys",
       "bid": "q0000"
@@ -85,7 +85,7 @@
       "bid": "q0001"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "solves",
       "title": "What changes for you",
       "bid": "dpzsi"
@@ -121,7 +121,7 @@
       "bid": "rz4t9"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "agent",
       "title": "An agent that knows your Stripe account",
       "bid": "lfym9"
@@ -150,7 +150,7 @@
       "bid": "d392r"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "turn-on",
       "title": "Turn it on in four steps",
       "bid": "mn2h5"
@@ -172,7 +172,7 @@
       "bid": "rtyyu"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "connect",
       "title": "Connect your element",
       "bid": "nss28"
@@ -193,7 +193,7 @@
       "bid": "dzrw9"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "hood",
       "title": "Under the hood",
       "bid": "rqmvp"
@@ -245,7 +245,7 @@
       "bid": "if9aj"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "more",
       "title": "Need more?",
       "bid": "ojk2w"
@@ -256,7 +256,7 @@
       "bid": "s9ad4"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "builder",
       "title": "Your own builder comes with it",
       "bid": "q0002"
@@ -281,7 +281,7 @@
       "bid": "q0005"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "credits",
       "title": "Open source",
       "bid": "ibech"
@@ -292,13 +292,13 @@
       "bid": "ibgo3"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "faq",
       "title": "Questions and answers",
       "bid": "q0006"
     },
     {
-      "kind": "block-faq",
+      "kind": "section-faq",
       "title": "Questions and answers",
       "items": [
         {

@@ -2,13 +2,13 @@
   "title": "Оплата картой для каждого элемента вашего узла",
   "description": "Элемент Stripe узла Fractera хранит ваши ключи Stripe, создаёт ссылки на оплату в Stripe Checkout и записывает каждую оплату за элементом, который продал.",
   "keywords": "Stripe, Stripe Checkout, оплата картой, вебхук, Stripe MCP, Claude Code, Fractera, открытый код",
-  "blocks": [
+  "body": [
     {
       "kind": "widget-static-stripe-landing",
       "bid": "gg1qi"
     },
     {
-      "kind": "block-hero-centered",
+      "kind": "section-hero-centered",
       "pill": "OpenSource Web4 agent & app starter kit",
       "title": "Оплата картой для каждого элемента вашего узла",
       "description": "Ваш магазин или страница записи одним вызовом просит у этого элемента ссылку на оплату. Покупатель платит на странице самого Stripe, а деньги поступают на ваш аккаунт Stripe.",
@@ -23,7 +23,7 @@
       "bid": "bnuix"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "route",
       "title": "Как проходит оплата",
       "bid": "o5psm"
@@ -74,7 +74,7 @@
       "bid": "fjqts"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "power",
       "title": "Выключен, пока нет ключей",
       "bid": "q0000"
@@ -85,7 +85,7 @@
       "bid": "q0001"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "solves",
       "title": "Что меняется для вас",
       "bid": "dpzsi"
@@ -121,7 +121,7 @@
       "bid": "rz4t9"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "agent",
       "title": "Агент, который знает ваш аккаунт Stripe",
       "bid": "lfym9"
@@ -150,7 +150,7 @@
       "bid": "d392r"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "turn-on",
       "title": "Включение в четыре шага",
       "bid": "mn2h5"
@@ -172,7 +172,7 @@
       "bid": "rtyyu"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "connect",
       "title": "Подключите свой элемент",
       "bid": "nss28"
@@ -193,7 +193,7 @@
       "bid": "dzrw9"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "hood",
       "title": "Что под капотом",
       "bid": "rqmvp"
@@ -245,7 +245,7 @@
       "bid": "if9aj"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "more",
       "title": "Нужно больше?",
       "bid": "ojk2w"
@@ -256,7 +256,7 @@
       "bid": "s9ad4"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "builder",
       "title": "Свой строитель в комплекте",
       "bid": "q0002"
@@ -281,7 +281,7 @@
       "bid": "q0005"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "credits",
       "title": "Открытый код",
       "bid": "ibech"
@@ -292,13 +292,13 @@
       "bid": "ibgo3"
     },
     {
-      "kind": "block-section-head",
+      "kind": "section-head",
       "id": "faq",
       "title": "Вопросы и ответы",
       "bid": "q0006"
     },
     {
-      "kind": "block-faq",
+      "kind": "section-faq",
       "title": "Вопросы и ответы",
       "items": [
         {
